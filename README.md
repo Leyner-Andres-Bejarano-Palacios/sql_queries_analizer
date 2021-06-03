@@ -32,7 +32,7 @@ Using regular expresions to detect the piece of code where any of these rules wa
 
 This is the most complex rule and it happen in several phases.
 
-### phase 0, preprocess strings
+#### phase 0, preprocess strings
 
 The development only care about non-commented lines of codes and non-quoted lines of sql, so first we need to detect the single line comments with this regex.
 
@@ -53,7 +53,7 @@ and double-quoted  pieces of code
 
 Regex work better when we dont have to worry if there are newlines, multiple spaces or tabs in the string, so we remove all of this from the string.
 
-##### phase1, phase2 and phase3
+#### phase1, phase2 and phase3
 
 In phase #1 (method __fn_find_referenced_tables at the end of subtittle "phase1, phase2 and phase3") we generate a list of every table in the cluster (the rule does not apply on tables created by the user). we check if the name of those tables is present in the query. This is a simple literal match looking for specific names in the string.
 
