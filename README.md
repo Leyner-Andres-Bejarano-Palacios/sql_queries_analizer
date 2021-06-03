@@ -34,7 +34,11 @@ This is the most complex rule and it happen in several phases.
 
 ##### phase1, phase2 and phase3
 
-In phase #1 (method __fn_find_referenced_tables) we generate a list of every table in the cluster (the rule does not apply on tables created by the user). we check if the name of those tables is present in the query
+In phase #1 (method __fn_find_referenced_tables) we generate a list of every table in the cluster (the rule does not apply on tables created by the user). we check if the name of those tables is present in the query. This is a simple literal match looking for specific names in the string
+
+Phase #2 check for reference to partitions. References to partitions are sql sentences of the form "from ingestion_year"
+
+Phase #3 create a dictionary of every alias used in the sql query
 
 
 
